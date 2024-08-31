@@ -1,0 +1,16 @@
+on: [pull_request, push]
+jobs:
+  lint:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+      - uses: cachix/install-nix-action@v24
+      - name: Formatting
+        run: |
+          nix fmt
+          nix build ".#all-formats"
+      - name: Static analysis
+        if: ${{ false }}
+        run: |
+          nix flake check
+          nix build ".#all-lints"

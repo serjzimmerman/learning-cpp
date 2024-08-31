@@ -1,0 +1,3 @@
+int func (int, int) a = func (int x, int y): foo {
+  return 1;
+}

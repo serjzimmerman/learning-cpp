@@ -1,0 +1,34 @@
+{
+  "normal": {
+    "number": 4,
+    "deviation": 64,
+    "mean": 4096,
+    "length": 16384,
+    "requests": {
+      "lower": 256,
+      "upper": 1024
+    }
+  },
+  "triangle": {
+    "number": 16,
+    "left": 0,
+    "right": 65536,
+    "mode": 16384,
+    "length": 16384,
+    "requests": {
+      "lower": 4096,
+      "upper": 8192
+    }
+  },
+  "uniform": {
+    "number": 1,
+    "lower": 0,
+    "upper": 16777216,
+    "length": 8388608,
+    "requests": {
+      "lower": 1024,
+      "upper": 8192
+    }
+  },
+  "output_path": "./resources/"
+}

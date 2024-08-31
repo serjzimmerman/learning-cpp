@@ -1,0 +1,1 @@
+a = b = func(x) {return 4;}

@@ -1,0 +1,8 @@
+func (x) : is_true {
+  if (x == 0)
+    return 0;
+  res = 1;
+  return res;
+}
+print is_true(2);
+// is_true(2);

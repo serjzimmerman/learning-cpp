@@ -1,0 +1,20 @@
+{
+  "number": "16",
+  "elements": {
+    "min": 32768,
+    "max": 65536
+  },
+  "min_queries": {
+    "min": 4096,
+    "max": 16384
+  },
+  "less_queries": {
+    "min": 4096,
+    "max": 16384
+  },
+  "integers": {
+    "min": 16384,
+    "max": 1048576
+  },
+  "output_path": "./resources/"
+}

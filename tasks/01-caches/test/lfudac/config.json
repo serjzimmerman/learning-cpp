@@ -1,0 +1,26 @@
+{
+  "normal": {
+    "number": 8,
+    "deviation": 16,
+    "mean": 64,
+    "length": 262144
+  },
+  "triangle": {
+    "number": 64,
+    "left": 0,
+    "right": 128,
+    "mode": 16,
+    "length": 16384
+  },
+  "uniform": {
+    "number": 2,
+    "lower": 0,
+    "upper": 1024,
+    "length": 4194304
+  },
+  "size": {
+    "lower": 4,
+    "upper": 128
+  },
+  "output_path": "./resources/"
+}

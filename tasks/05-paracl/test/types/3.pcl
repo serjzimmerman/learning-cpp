@@ -1,0 +1,1 @@
+a = func (int x, int y) { print x + y; }

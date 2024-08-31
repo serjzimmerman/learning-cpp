@@ -1,0 +1,5 @@
+func (x, y): mult {
+  return x * y;
+}
+
+print mult(2, 3);

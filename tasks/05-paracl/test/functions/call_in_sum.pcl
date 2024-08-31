@@ -1,0 +1,20 @@
+func (): foo {
+  return 1;
+}
+
+func (): bar {
+  return 2;
+}
+
+func (a): buz {
+  a = foo() + bar();
+  return a;
+}
+
+func (): biz {
+  return a = foo() + bar();
+}
+
+a = 5;
+print buz(a);
+print biz();

@@ -1,0 +1,48 @@
+on: [pull_request, push]
+jobs:
+  task-hwc:
+    uses: ./.github/workflows/build-reusable.yaml
+    with:
+      config-path: tasks/01-caches
+  task-hw3d:
+    uses: ./.github/workflows/build-reusable.yaml
+    with:
+      config-path: tasks/02-geometry/01-hw3d
+  task-paracl:
+    uses: ./.github/workflows/build-reusable.yaml
+    with:
+      config-path: tasks/05-paracl
+  task-trees-hwt:
+    uses: ./.github/workflows/build-reusable.yaml
+    with:
+      config-path: tasks/03-trees/01-hwt
+  task-trees-splay:
+    uses: ./.github/workflows/build-reusable.yaml
+    with:
+      config-path: tasks/03-trees/02-splay
+  task-trees-rmq:
+    uses: ./.github/workflows/build-reusable.yaml
+    with:
+      config-path: tasks/03-trees/03-rmq
+  task-trees-kd:
+    uses: ./.github/workflows/build-reusable.yaml
+    with:
+      config-path: tasks/03-trees/04-kd
+  task-linmath-hwmx:
+    uses: ./.github/workflows/build-reusable.yaml
+    with:
+      config-path: tasks/04-linmath/01-hwmx
+  task-linmath-resistors:
+    uses: ./.github/workflows/build-reusable.yaml
+    with:
+      config-path: tasks/04-linmath/02-resistors
+  task-compute-bitonic:
+    uses: ./.github/workflows/build-reusable.yaml
+    with:
+      config-path: tasks/06-compute/01-bitonic-sort
+      testing: false
+  task-geometry-vulkan:
+    uses: ./.github/workflows/build-reusable.yaml
+    with:
+      config-path: tasks/02-geometry/02-vulkan
+      testing: false

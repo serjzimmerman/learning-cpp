@@ -1,0 +1,74 @@
+{
+  "groups": 
+    [
+      { 
+        "number": 4,
+        "size": {
+          "min": 2,
+          "max": 4
+        },
+        
+        "diag": {
+          "right": 16
+        },
+        
+        "additions": 16,
+        "shuffles": 4,
+        
+        "test_fmt_string": "small{}.dat",
+        "ans_fmt_string": "small{}.dat.ans"
+      },
+      { 
+        "number": 4,
+        "size": {
+          "min": 12,
+          "max": 36
+        },
+        
+        "diag": {
+          "right": 4
+        },
+        
+        "additions": 128,
+        "shuffles": 32,
+        
+        "test_fmt_string": "medium{}.dat",
+        "ans_fmt_string": "medium{}.dat.ans"
+      },
+      { 
+        "number": 4,
+        "size": {
+          "min": 64,
+          "max": 150
+        },
+        
+        "diag": {
+          "right": 3
+        },
+        
+        "additions": 512,
+        "shuffles": 128,
+        
+        "test_fmt_string": "huge{}.dat",
+        "ans_fmt_string": "huge{}.dat.ans"
+      },
+      { 
+        "number": 4,
+        "size": {
+          "min": 32,
+          "max": 48
+        },
+        
+        "diag": {
+          "right": 3
+        },
+        
+        "additions": 256,
+        "shuffles": 64,
+        
+        "test_fmt_string": "large{}.dat",
+        "ans_fmt_string": "large{}.dat.ans"
+      }
+    ],
+  "output_path": "./resources/"
+}

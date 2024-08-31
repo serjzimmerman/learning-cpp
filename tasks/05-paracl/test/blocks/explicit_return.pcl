@@ -1,0 +1,10 @@
+a = {
+  a = ?;
+
+  if (a <= 5)
+    return 0;
+  1; // Implicit return
+};
+
+print a;
+1;

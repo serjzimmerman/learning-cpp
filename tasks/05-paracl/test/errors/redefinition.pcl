@@ -1,0 +1,7 @@
+a = func (x, y): foo {
+  print 1;
+}
+
+b = func (z): foo {
+  print 2;
+}

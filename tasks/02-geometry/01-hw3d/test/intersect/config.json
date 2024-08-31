@@ -1,0 +1,57 @@
+{
+  "groups": 
+    [
+      { 
+        "number": 4,
+        "length": {
+          "min": 8192,
+          "max": 16384
+        },
+        "mean": 50,
+        "std": 10,
+        "half": {
+          "x": 5000, 
+          "y": 5000, 
+          "z": 5000
+        },
+        "test_fmt_string": "medium{}.dat",
+        "ans_fmt_string": "medium{}.dat.ans",
+        "round": 4
+      },
+      { 
+        "number": 2,
+          "length": {
+            "min": 16384,
+            "max": 65536
+          },
+          "mean": 100,
+          "std": 25,
+          "half": {
+            "x": 15000, 
+            "y": 15000, 
+            "z": 5000
+          },
+          "test_fmt_string": "large{}.dat",
+          "ans_fmt_string": "large{}.dat.ans",
+          "round": 6
+      },
+      { 
+        "number": 4,
+          "length": {
+            "min": 512,
+            "max": 1024
+          },
+          "mean": 15,
+          "std": 3,
+          "half": {
+            "x": 500, 
+            "y": 500, 
+            "z": 250
+          },
+          "test_fmt_string": "small{}.dat",
+          "ans_fmt_string": "small{}.dat.ans",
+          "round": 6
+      }
+    ],
+  "output_path": "./resources/"
+}

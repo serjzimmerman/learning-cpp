@@ -1,0 +1,14 @@
+func (): foo {
+  print 1;
+}
+
+func (): bar {
+  foo();
+}
+
+func (): buz {
+  foo();
+  bar();
+}
+
+bar();

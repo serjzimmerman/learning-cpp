@@ -1,0 +1,3 @@
+[submodule "tasks/05-paracl/ezvis/3rd-party/ctti"]
+	path = tasks/05-paracl/ezvis/3rd-party/ctti
+	url = https://github.com/Manu343726/ctti.git

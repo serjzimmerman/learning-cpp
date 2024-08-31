@@ -1,0 +1,6 @@
+n = 0;
+while ((x = ?) != (y = ?)) {
+  print n = n + 1;
+  print x;
+  print y;
+}

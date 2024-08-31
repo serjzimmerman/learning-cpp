@@ -1,0 +1,9 @@
+func(x):foo {
+  b = x;
+}
+
+i = 2;
+while(i > 0){
+  print foo(?);
+  i = i - 1;
+}

@@ -1,0 +1,40 @@
+name: Main build and test workflow
+on:
+  workflow_call:
+    inputs:
+      config-path:
+        required: true
+        type: string
+      testing:
+        required: false
+        default: true
+        type: boolean
+jobs:
+  main:
+    runs-on: ubuntu-22.04
+    defaults:
+      run:
+        shell: bash
+        working-directory: ${{ inputs.config-path }}
+    env:
+      CMAKE_GENERATOR: Ninja
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: true
+      - uses: cachix/install-nix-action@v24
+      - name: Configure
+        run: |
+          nix develop --command \
+          cmake -S ./ -B build -DCMAKE_BUILD_TYPE=Release -DNOLINT=ON -DNOGTEST=OFF
+      - name: Build
+        run: |
+          nix develop --command \
+          cmake --build build
+      - name: Test
+        if: ${{ inputs.testing }}
+        run: |
+          nix develop --command \
+          cmake --build build --target test
+        env:
+          CTEST_OUTPUT_ON_FAILURE: 1

@@ -1,0 +1,9 @@
+// Testing assignments as expressions
+
+while ((x = ?) != 0) {
+  if ((y = ?) > 0) {
+    print y;
+  } else {
+    print -y;
+  }
+}

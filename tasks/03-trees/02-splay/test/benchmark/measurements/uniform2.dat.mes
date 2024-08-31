@@ -1,0 +1,3 @@
+Outputs match with std::set
+throttle::splay_set took 34.4259ms to run
+std::set took 6550.14ms to run

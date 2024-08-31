@@ -1,0 +1,2 @@
+b = func(n) { n; print n; };
+b(3);

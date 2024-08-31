@@ -1,0 +1,4 @@
+foo = func() { return 1; }
+
+a = foo + 5 / 1;
+print a();
