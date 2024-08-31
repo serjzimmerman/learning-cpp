@@ -19,7 +19,7 @@
         overlays = [];
       };
 
-      clang-tools = pkgs.clang-tools_17;
+      clang-tools = pkgs.clang-tools;
       lints = inputs.lint-nix.lib.lint-nix (let
         cpp-extensions = [
           ".c"
