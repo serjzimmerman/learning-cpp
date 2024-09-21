@@ -13,24 +13,23 @@
 #include <algorithm>
 #include <cassert>
 #include <deque>
-#include <functional>
 #include <map>
+#include <stdexcept>
 #include <unordered_map>
-#include <unordered_set>
 #include <vector>
 
 namespace caches {
 
 namespace detail {
 
-template <typename T> class occurence_map_t {
+template <typename T> class occurrence_map_t {
   using map_t__ = typename std::unordered_map<T, std::deque<std::size_t>>;
   map_t__ m_map;
 
 public:
   template <typename t_iterator>
-  occurence_map_t(t_iterator p_begin, t_iterator p_end) : m_map{} {
-    // This constructs a map of vectors of corresponding occurence vectors.
+  occurrence_map_t(t_iterator p_begin, t_iterator p_end) : m_map{} {
+    // This constructs a map of vectors of corresponding occurrence vectors.
     std::for_each(p_begin, p_end, [this, i = 0](const T &element) mutable {
       m_map[element].push_back(++i);
     });
@@ -92,7 +91,7 @@ public:
   }
 #endif
 
-  // Returns the first occurence of the element. "0" is used to indicate that
+  // Returns the first occurrence of the element. "0" is used to indicate that
   // the value will never be encountered again.
   std::size_t first(const T &p_elem) {
     auto found = m_map.find(p_elem);
@@ -119,7 +118,7 @@ template <typename T> class ideal_t {
 #endif
 
   std::vector<T> m_vec;
-  occurence_map_t<T> m_occur_map;
+  occurrence_map_t<T> m_occur_map;
   std::size_t m_size, m_hits;
 
   bool is_full() const noexcept {
@@ -148,25 +147,6 @@ template <typename T> class ideal_t {
   }
 
   void lookup_elem(const T &p_elem) {
-    // This is the naive implementation that I tried first. It works reasonably
-    // well with small cache sizes, but has a assymptotic linear complexity with
-    // size of cache m. But this complexity is actually ammortized because a
-    // linear complexity algorithm is called only when there's a cache miss.
-#if 0
-    if (m_set.find(p_elem) != m_set.end()) {
-      m_hits++;
-    }
-
-    else if (!is_full()) {
-      m_set.insert(p_elem);
-    }
-
-    else {
-      m_set.erase(m_occur_map.find_latest_used(m_set));
-      m_set.insert(p_elem);
-    }
-    m_occur_map.erase_first(p_elem);
-#else
     std::size_t prev_indx = m_occur_map.first(p_elem);
     m_occur_map.erase_first(p_elem);
 
@@ -179,18 +159,19 @@ template <typename T> class ideal_t {
       return;
     }
 
-    else if (!is_full()) {
-      insert(p_elem);
+    if (!m_occur_map.first(p_elem)) {
+      return;
     }
 
-    else {
-      // The std::prev is completely legal bacause there's must at least one
+    if (!is_full()) {
+      insert(p_elem);
+    } else {
+      // The std::prev is completely legal because there's must at least one
       // element present.
       auto [latest_indx, latest_used] = *(std::prev(m_contained.end()));
       m_contained.erase(latest_indx);
       insert(p_elem);
     }
-#endif
   }
 
 public:

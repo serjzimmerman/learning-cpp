@@ -43,7 +43,7 @@ def find_latest_used(p_list: list, p_curr_set: fixed_set, p_curr_pos: int):
     latest_item = None
     latest_used = None
 
-    cut_list = p_list[p_curr_pos:]
+    cut_list = p_list[p_curr_pos + 1 :]
 
     for item in p_curr_set:
         if item not in cut_list:
@@ -77,12 +77,14 @@ def get_optimal_hits(p_list: list, p_size: int) -> int:
             hits += 1
             continue
 
+        if item not in p_list[curr + 1 :]:
+            continue
+
         if not currently_cached.full():
             currently_cached.insert(item)
             continue
 
         latest_used = find_latest_used(p_list, currently_cached, curr)
-
         currently_cached.remove(latest_used)
         currently_cached.insert(item)
 
