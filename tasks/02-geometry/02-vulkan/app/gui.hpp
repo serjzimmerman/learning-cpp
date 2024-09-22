@@ -48,7 +48,7 @@ private:
   static void imgui_check_vk_error(VkResult res) {
     vk::Result hpp_result = vk::Result{res};
     const auto error_message = vk::to_string(hpp_result);
-    vk::resultCheck(hpp_result, error_message.c_str());
+    vk::detail::resultCheck(hpp_result, error_message.c_str());
   }
 
 public:
